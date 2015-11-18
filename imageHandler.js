@@ -120,6 +120,11 @@ var addToDirectoryArray = function (parsedImage) {
     parsedImage.class = subDirs[1] || null;
     parsedImage.round = subDirs[2] || null;
     parsedImage.path = subDirs.join("/") + "/" + parsedImage.id;
+
+    // Add tags
+    if (subDirs.length > 2) {
+        parsedImage.tags = subDirs.slice(2);
+    }
 };
 
 //returns a parsed object from path
@@ -131,6 +136,7 @@ var createParsedImage = function (entry) {
         baseName: path.basename(entry, path.extname(entry)),
         id: null,
         path: null,
+        tags: [],
         metadata: {}
     };
 };
