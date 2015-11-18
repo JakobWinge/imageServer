@@ -1,0 +1,4 @@
+node_modules/
+public/originals/
+public/resized/
+.idea/
