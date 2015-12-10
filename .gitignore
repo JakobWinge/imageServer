@@ -1,4 +1,6 @@
 node_modules/
 public/originals/
 public/resized/
+public/videos/
+.DS_Store
 .idea/

@@ -1,7 +1,9 @@
 var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
-var imageHandler = require('./imageHandler');
+
+
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -15,8 +17,17 @@ var router = express.Router();              // get an instance of the express Ro
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/analyze', function(req, res) {
-  res.json({ message: 'ImageServer started analyzing images...' });
-  imageHandler.analyze();
+    var imageHandler = require('./imageHandler');
+
+    res.json({ message: 'ImageServer started analyzing images...' });
+    imageHandler.analyze();
+});
+
+router.get('/analyze_video', function(req, res) {
+    var videoHandler = require('./videoHandler');
+
+    res.json({ message: 'ImageServer started analyzing videos...' });
+    videoHandler.analyze();
 });
 
 // more routes for our API will happen here
